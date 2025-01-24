@@ -39,16 +39,21 @@ const offres = [
 ];
 ---
 
- <Base titre="Accueil">
-    <h1 class="text-2xl">Offres</h1>
-    <p class="text-slate-700">offres</p>
+<Base titre="Offres">
+  <h1 class="text-2xl">Offres</h1>
+  <p class="text-slate-700">offres</p>
 </Base>
 
-<div>
-  {offres.map((offres) => 
-  <ul>
-  <Card {...offres} />
-  </ul>
-  )
-}
+<div x-data="{ showFavorites: false }">
+  <button @click="?">
+    <span x-show="{ showFavorites: true }">Afficher les favoris</span>
+    <span x-show="{ showFavorites: false }">Afficher tout</span>
+  </button>
+
+  <div x-show="{ showFavorites: true }">
+    {offres.map((offre) => <Card {...offre} />)}
+  </div>
+  <div x-show="{ showFavorites: false }">
+    {offres.map((offre) => offre.favori && offre)}
+  </div>
 </div>
