@@ -3,3 +3,9 @@ const { ...offre } = Astro.props;
 ---
 
 <li>{offre.nomMaison}</li>
+<li>{offre.adresse}</li>
+<li>{offre.prix}€</li>
+<li>{offre.surface}</li>
+<li>{offre.nbChambres}</li>
+<li>{offre.nbSdb}</li>
+<img src={offre.imgUrl} alt={offre.nomMaison} />
