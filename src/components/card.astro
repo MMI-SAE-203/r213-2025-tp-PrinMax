@@ -6,4 +6,5 @@ const { nomMaison, img } = Astro.props;
 <div class="border-gray-300">
   <h2 class="text-xl font-bold mt-4">{nomMaison}</h2>
   <img src={img} alt={nomMaison} class="w-full h-auto" />
+  <a href={`/offres/${offre.id}`}>Voir plus</a>
 </div>
