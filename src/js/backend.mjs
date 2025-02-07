@@ -2,18 +2,14 @@ import PocketBase from 'pocketbase';
 
 const pb = new PocketBase('http://localhost:8090');
 
-export async function getOffres() {
+//backend.js
+export async function getOffre(id) {
     try {
-        let data = await pb.collection('maison').getFullList({
-            sort: '-created',
-        });
-        data = data.map((item) => {
-            item.createdAt = new Date(item.created);
-            return item;
-        });
+        let data = await db.collection('maison').getOne(id);
+        data.imageUrl = db.files.getURL(data, data.image);
         return data;
     } catch (error) {
-        console.log('Une erreur est survenue en lisant la liste des maisons', error);
-        return [];
+        console.log('Une erreur est survenue en lisant la maison', error);
+        return null;
     }
 }
