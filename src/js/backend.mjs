@@ -2,7 +2,6 @@ import PocketBase from 'pocketbase';
 
 const pb = new PocketBase('http://localhost:8090');
 
-//backend.js
 export async function getOffre(id) {
     try {
         let data = await db.collection('maison').getOne(id);

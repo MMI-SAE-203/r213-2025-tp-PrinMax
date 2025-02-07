@@ -1,7 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
-import { getOffres} from "../js/backend.mjs";
-import Card from "../../components/Card.astro";
+
 const offres = [
   {
     adresse: "2821 Lake Sevilla, Palm Harbor, TX",
@@ -51,7 +50,7 @@ const offres = [
   </button>
 
   <div x-show="{ showFavorites: true }">
-    {offres.map((offre) => <Card {...offre} />)}
+    {offres.map((offre) => <Car {...offre} />)}
   </div>
   <div x-show="{ showFavorites: false }">
     {offres.map((offre) => offre.favori && offre)}
