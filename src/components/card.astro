@@ -3,12 +3,12 @@
 const { ...offre } = Astro.props;
 ---
 
-<div class="border-gray-300">
+<div
+  class="border-gray-300"
+  x-data={`{favori: ${offre.favori}, clickFavori() {this.favori = !this.favori; setFavori(${JSON.stringify(offre)});}}`}
+>
   <h2 class="text-xl font-bold mt-4">{offre.nomMaison}</h2>
   <img src={offre.img} alt={offre.nomMaison} class="w-full h-auto" />
-  x-data={
-    `{favori: ${offre.favori}, clickFavori() {this.favori = !this.favori; setFavori(${JSON.stringify(offre)});}}`
-  }
 </div>
 <a href={`/offres/${offre.id}`}>Voir plus</a>
 
