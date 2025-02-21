@@ -84,3 +84,7 @@ export async function getOffre(id) {
         return null;
     }
 }
+
+export async function setFavori(house) {
+    await pb.collection('maison').update(house.id, {favori: !house.favori});
+}
